@@ -20,17 +20,33 @@
       <link href="../favicon.png" rel="icon" sizes="192x192" />
       <link href="../favicon.png" rel="icon" sizes="128x128" />
       
+      <script src="combinatronics.js"></script>
+      <script src="resultados.js"></script>
+      
     </head>
 
     <body>
       
       <style>
-        header, main, footer {
+        .loader-back{
+            position: fixed;
+          	left: 10%;
+          	top: 0px;
+          	width: 100%;
+          	height: 100%;
+          	z-index: 1000;
+          	background: url(loader.gif) center no-repeat #fff;
+          }
+      </style>
+      <div class="loader-back"></div>
+      
+      <style>
+        .loader-back, header, main, footer {
           padding-left: 240px;
         }
         
         @media only screen and (max-width : 992px) {
-          header, main, footer {
+          .loader-back, header, main, footer {
             padding-left: 0;
           }
         }
@@ -53,258 +69,34 @@
       
       <main>
         <!--Menu movil-->
-        <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only" style="position: absolute;color: #FFF;top: 10px;margin-left: 10px;"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only" style="position: absolute;color: #000;top: 10px;margin-left: 10px;"><i class="material-icons">menu</i></a>
       <input type="hidden" id="id_almacen">
       <input type="hidden" id="userid">
       <input type="hidden" id="bcode">
       <!--Work container-->
       <div id="work-place">
+        <div class="row" style="margin-top: 32px;">
+          <div class="input-field col s12">
+          <select id="partidos">
+            <option value="" disabled selected>Cuantos partidos se van a calcular?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <label>Partidos a calcular</label>
+        </div>
+        </div>
           <div class="row">
-            <div class="col m1 s3">
-              <table class="striped z-depth-2">
-                <thead>
-                  <th class="black white-text center-align">1</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="col s12">
+              <table class="striped z-depth-2" id="tabla"></table>
             </div>
-            
-            <div class="col m1 s3">
-              <table class="striped z-depth-2">
-                <thead>
-                  <th class="black white-text center-align">1</th>
-                  <th class="black white-text center-align">2</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <div class="col m2 s6">
-              <table class="striped z-depth-2">
-                <thead>
-                  <th class="black white-text center-align">1</th>
-                  <th class="black white-text center-align">2</th>
-                  <th class="black white-text center-align">3</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <div class="col m2 s6">
-              <table class="striped z-depth-2">
-                <thead>
-                  <th class="black white-text center-align">1</th>
-                  <th class="black white-text center-align">2</th>
-                  <th class="black white-text center-align">3</th>
-                  <th class="black white-text center-align">4</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                    <td class="center-align">L</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                    <td class="center-align">E</td>
-                  </tr>
-                  <tr>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                    <td class="center-align">V</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-          </div>
+        </div>
       </div>
       </main>
       
