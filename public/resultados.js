@@ -21,18 +21,17 @@ function makeTableHTML(myArray,n) {
     $('#tabla > thead').remove()
     $('#tabla > tbody').remove()
     var result = '<thead>'
-    result += "<th class='black white-text center-align'>></th>"
+    result += "<th class='black white-text center-align' style='padding: 5px;'>></th>"
     for(var i=1; i<=n; i++) {
-            result += "<th class='black white-text center-align'>"+[i]+"</th>"
+            result += "<th class='black white-text center-align' style='padding: 5px;'>"+[i]+"</th>"
     }
     result += '</thead><tbody >'
     for(var i=0; i<myArray.length; i++) {
         result += "<tr>";
-        result += "<td class='center-align' style='font-weight:bold;'>"+(parseInt([i])+1)+"</td>"
+        result += "<td class='center-align' style='font-weight:bold;padding: 5px;'>"+(parseInt([i])+1)+"</td>"
         for(var j=0; j<myArray[i].length; j++){
-            result += "<td class='center-align'>"+myArray[i][j]+"</td>"
+            result += "<td class='center-align' style='padding: 5px;'>"+myArray[i][j]+"</td>"
         }
-        
         result += "</tr>"
     }
     result += '</tbody>'
