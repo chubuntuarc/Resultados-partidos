@@ -122,7 +122,7 @@ function makeTableHTML(myArray,n) {
     }
     result += '</thead><tbody >';
     for(var i=0; i<myArray.length; i++) {
-        result += "<tr class='row_"+(parseInt([i])+1)+"'>";
+        result += "<tr class='row_"+(parseInt([i])+1)+"' style='padding: 0px;'>";
         result += "<td class='center-align' style='font-weight:bold;padding: 4px;'>"+(parseInt([i])+1)+"</td>";
         for(var j=0; j<myArray[i].length; j++){
             result += "<td class='center-align col_"+(parseInt([j])+1)+"' style='padding: 4px;'>"+myArray[i][j]+"</td>";
